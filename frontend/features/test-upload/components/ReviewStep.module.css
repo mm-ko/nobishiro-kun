@@ -1,0 +1,195 @@
+.form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-block: var(--space-6) var(--space-8);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.header h1,
+.header p,
+.eyebrow,
+.cardDescription,
+.problemText,
+.readingLabel,
+.readingValue,
+.guidance,
+.fieldError,
+.formError,
+.completionHint {
+  margin: 0;
+}
+
+.header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-title);
+  line-height: 1.4;
+}
+
+.header p:not(.eyebrow),
+.cardDescription,
+.completionHint {
+  color: var(--color-text-sub);
+}
+
+.eyebrow {
+  color: var(--color-primary-hover);
+  font-size: var(--font-size-caption);
+  font-weight: 700;
+}
+
+.scoreFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.questionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.answerCorrection {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.problemText {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-bg);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.readingBlock {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.readingLabel {
+  color: var(--color-text-sub);
+  font-size: var(--font-size-caption);
+}
+
+.readingValue {
+  font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.guidance {
+  color: var(--color-error);
+  font-size: var(--font-size-caption);
+}
+
+.fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.fieldset legend {
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+}
+
+.choiceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.choiceButton {
+  position: relative;
+  min-height: 48px;
+  padding: var(--space-2) var(--space-3);
+  border: 1.5px solid var(--color-border-input);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 選択中は、背景色だけでなく太い枠とチェックマークでも示す（#76 のレビューより） */
+.choiceButton[aria-pressed="true"] {
+  border-color: var(--color-text);
+  background: var(--color-primary-light);
+  /* 枠 1.5px＋内側の線 1.5px で 3px に見せる（ボタンの大きさを変えないため） */
+  box-shadow: inset 0 0 0 1.5px var(--color-text);
+}
+
+/* 右上の角に丸いバッジで出す（ボタンの文字と重ならないように） */
+.choiceButton[aria-pressed="true"]::after {
+  /* 選択中であることは aria-pressed で伝わるため、記号は読み上げない */
+  content: "✓" / "";
+  position: absolute;
+  top: calc(var(--space-2) * -1);
+  right: calc(var(--space-2) * -1);
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-text);
+  color: var(--color-surface);
+  font-size: var(--font-size-caption);
+  line-height: 1;
+}
+
+.choiceButton:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.choiceButton:disabled {
+  border-color: transparent;
+  background: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
+
+.fieldError,
+.formError {
+  color: var(--color-error);
+  font-size: var(--font-size-caption);
+}
+
+.fieldError {
+  margin-top: var(--space-2);
+}
+
+.formError,
+.completionHint {
+  text-align: center;
+}
+
+@media (max-width: 23rem) {
+  .scoreFields,
+  .choiceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .readingBlock {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .readingValue {
+    text-align: left;
+  }
+}

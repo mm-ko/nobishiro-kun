@@ -1,0 +1,46 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.item:first-child {
+  padding-top: 0;
+}
+
+.item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.date {
+  flex-shrink: 0;
+  min-width: 3em;
+  color: var(--color-text-sub);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 単元名が長いときは、横にはみ出さずに折り返す */
+.unit {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.score {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.message {
+  margin: 0;
+}

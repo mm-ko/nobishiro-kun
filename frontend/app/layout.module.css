@@ -1,0 +1,6 @@
+/* すべてのページ共通の画面枠（スマホ基準。PCでは最大幅にして中央に置く） */
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding-inline: var(--space-5);
+}

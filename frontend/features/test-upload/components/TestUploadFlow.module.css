@@ -1,0 +1,85 @@
+.page {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+}
+
+.statusCard {
+  box-sizing: border-box;
+  width: min(100%, 32rem);
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.statusIcon,
+.errorIcon {
+  display: inline-grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: var(--color-text);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.errorIcon {
+  border: 2px solid var(--color-error);
+  background: var(--color-surface);
+  color: var(--color-error);
+}
+
+.statusCard h1 {
+  margin: 1rem 0 0.5rem;
+  color: var(--color-text);
+  font-size: 1.5rem;
+}
+
+.statusCard p {
+  margin: 0;
+  color: var(--color-text-sub);
+  line-height: 1.7;
+}
+
+/* ボタンの高さ・文字の大きさは、共通の Button と同じにする */
+.statusCard button {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 1.5rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-control);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font: inherit;
+  font-size: var(--font-size-strong);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.statusActions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.statusActions button {
+  margin-top: 0;
+}
+
+.statusActions .secondaryButton {
+  min-height: 48px;
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+@media (min-width: 38rem) {
+  .statusCard {
+    padding: 3rem 2rem;
+  }
+}

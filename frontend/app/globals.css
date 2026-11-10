@@ -1,0 +1,87 @@
+/*
+ * 全画面で共通の色・文字・余白などの変数（Issue #54 で決定）
+ * 各画面・各部品では、色やサイズを直接書かず、ここの変数を使う
+ */
+:root {
+  /* 色 */
+  --color-bg: #f5f9fa;
+  --color-surface: #ffffff;
+  --color-text: #0f2c59;
+  --color-text-sub: #5a6b7b;
+  --color-border: #d0dde0;
+  --color-border-input: #5a6b7b;
+  --color-primary: #2cc7c0;
+  --color-primary-hover: #0fb3b8;
+  --color-primary-light: #7edbd6;
+  --color-accent: #ffe58a;
+  --color-on-primary: #0f2c59;
+  --color-error: #c0392b;
+  --color-disabled-bg: #e6ecee;
+  --color-disabled-text: #5a6b7b;
+  --color-focus: #0f2c59;
+
+  /* フォント（読み込みは app/layout.tsx） */
+  --font-heading:
+    var(--font-zen-maru-gothic), "Hiragino Maru Gothic ProN", sans-serif;
+  --font-body:
+    var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", sans-serif;
+
+  /* 文字の大きさ */
+  --font-size-title: 24px;
+  --font-size-heading: 20px;
+  --font-size-strong: 18px;
+  --font-size-body: 16px;
+  --font-size-caption: 14px;
+  --font-size-number: 32px;
+  --line-height-body: 1.7;
+
+  /* 余白 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+
+  /* 角の丸み・影・幅 */
+  --radius-control: 12px;
+  --radius-card: 20px;
+  --shadow-card: 0 2px 8px rgba(15, 44, 89, 0.06);
+  --content-max-width: 480px;
+
+  /* MVPはライトモードのみ（端末がダークモードでも明るい配色で表示する） */
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input {
+  font: inherit;
+}

@@ -1,0 +1,8 @@
+/* 月の上限のお知らせ。押せないので、ボタンとは違う見た目（黄色の背景）にする */
+.limitNotice {
+  margin: 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  color: var(--color-text);
+}

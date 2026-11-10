@@ -1,0 +1,94 @@
+/* ページの余白とすき間は、ホーム（UI-002）と同じにする */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-block: var(--space-6) var(--space-8);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* ログアウトボタンが横に広がって、見出しを折り返させないようにする */
+.logout {
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 文字の下側に引くマーカー（Issue #134） */
+.pageMarker {
+  background: linear-gradient(transparent 58%, var(--color-primary-light) 58%);
+}
+
+.commentCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.commentTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.titleMarker {
+  background: linear-gradient(transparent 58%, var(--color-accent) 58%);
+}
+
+.greeting {
+  margin: 0;
+  font-size: var(--font-size-strong);
+  font-weight: 400;
+}
+
+.commentBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-bg);
+  font-size: var(--font-size-body);
+  line-height: 1.9;
+}
+
+.sentence {
+  margin: 0;
+}
+
+/* 「〜ましょう」「〜ください」の文。色だけで区別しないよう太字にする */
+.actionMarker {
+  background: linear-gradient(transparent 58%, var(--color-accent) 58%);
+  font-weight: 700;
+}
+
+/* 「5×3+3=18」のような式 */
+.formula {
+  padding: 0 var(--space-1);
+  border-radius: 4px;
+  background: var(--color-accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.character {
+  text-align: center;
+}
+
+.characterImage {
+  object-fit: contain;
+}

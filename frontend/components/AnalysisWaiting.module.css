@@ -1,0 +1,95 @@
+.card {
+  width: min(100%, var(--content-max-width));
+  padding: var(--space-7) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-title);
+}
+
+.character {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: var(--space-5) auto var(--space-4);
+  transform-origin: bottom center;
+  animation: sway 2.4s ease-in-out infinite;
+}
+
+.message {
+  margin: 0;
+  font-size: var(--font-size-strong);
+  font-weight: 700;
+}
+
+.gauge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-4) 0;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+.dotActive {
+  background: var(--color-primary-light);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.dotDone {
+  background: var(--color-primary);
+}
+
+.line {
+  width: 32px;
+  height: 2px;
+  background: var(--color-border);
+}
+
+.note {
+  margin: 0;
+  color: var(--color-text-sub);
+}
+
+/* ゆれる・はねる */
+@keyframes sway {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  25% {
+    transform: translateY(-6px) rotate(-4deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(4deg);
+  }
+}
+
+/* 進行中の丸を、ゆっくり大きくする */
+@keyframes pulse {
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+/* 「動きを減らす」設定の端末では、のびしろくんと丸を動かさない */
+@media (prefers-reduced-motion: reduce) {
+  .character,
+  .dotActive {
+    animation: none;
+  }
+}
